@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Food Delivery App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Wireframe Nav -->
+    <nav class="wireframe-nav">
+      <div class="nav-inner">
+        <span class="nav-label">Wireframes:</span>
+        <a href="index.html" class="nav-link">Landing</a>
+        <a href="restaurants.html" class="nav-link">Restaurant List</a>
+        <a href="restaurant-detail.html" class="nav-link">Restaurant Detail</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+        <a href="checkout.html" class="nav-link">Checkout</a>
+        <a href="order-confirmation.html" class="nav-link">Order Confirm</a>
+        <a href="login.html" class="nav-link active">Login</a>
+        <a href="register.html" class="nav-link">Register</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <a href="design-system.html" class="nav-link">Design System</a>
+      </div>
+    </nav>
+
+    <div class="page-main">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="logo-placeholder"></div>
+        <div class="top-bar-actions">
+          <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+      </div>
+
+      <h2 class="page-title">Login Page</h2>
+
+      <!-- Centered Login Card -->
+      <div style="display: flex; justify-content: center; padding: var(--space-xl) 0;">
+        <div class="card" style="width: 100%; max-width: 448px; padding: var(--space-xl) var(--space-lg);">
+          <!-- Logo -->
+          <div style="width: 160px; height: 48px; background: var(--medium-gray); border-radius: var(--radius); margin: 0 auto var(--space-md);"></div>
+
+          <!-- Title -->
+          <h3 class="text-center" style="margin-bottom: var(--space-xs);">Welcome Back</h3>
+          <p class="text-center text-muted body-large" style="margin-bottom: var(--space-lg);">Sign in to continue</p>
+
+          <!-- Form -->
+          <form>
+            <div class="form-group mb-md">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" placeholder="Enter your email address">
+            </div>
+
+            <div class="form-group mb-sm">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-input" placeholder="Enter your password">
+            </div>
+
+            <div class="flex-between mb-lg">
+              <label class="check-group">
+                <input type="checkbox"> <span class="text-small">Remember me</span>
+              </label>
+              <a href="#" class="text-small text-primary">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-md btn-full mb-lg">Sign In</button>
+
+            <!-- Divider -->
+            <div class="divider-text mb-lg">OR</div>
+
+            <!-- Social Buttons -->
+            <button type="button" class="btn btn-secondary btn-md btn-full mb-sm" style="gap: var(--space-sm);">
+              <span style="width: 24px; height: 24px; background: var(--medium-gray); border-radius: 50%; display: inline-block;"></span>
+              Continue with Google
+            </button>
+            <button type="button" class="btn btn-secondary btn-md btn-full mb-lg" style="gap: var(--space-sm);">
+              <span style="width: 24px; height: 24px; background: var(--medium-gray); border-radius: 50%; display: inline-block;"></span>
+              Continue with Facebook
+            </button>
+
+            <!-- Bottom Text -->
+            <p class="text-center text-small text-muted">
+              Don't have an account? <a href="register.html" class="text-primary">Sign up</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Listing - Food Delivery App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Wireframe Nav -->
+    <nav class="wireframe-nav">
+      <div class="nav-inner">
+        <span class="nav-label">Wireframes:</span>
+        <a href="index.html" class="nav-link">Landing</a>
+        <a href="restaurants.html" class="nav-link active">Restaurant List</a>
+        <a href="restaurant-detail.html" class="nav-link">Restaurant Detail</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+        <a href="checkout.html" class="nav-link">Checkout</a>
+        <a href="order-confirmation.html" class="nav-link">Order Confirm</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="register.html" class="nav-link">Register</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <a href="design-system.html" class="nav-link">Design System</a>
+      </div>
+    </nav>
+
+    <div class="page-main">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="logo-placeholder"></div>
+        <div class="top-bar-actions">
+          <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+      </div>
+
+      <h2 class="page-title">Restaurant Listing Page</h2>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">›</span>
+        <span>Restaurants</span>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-bar mb-lg" style="width: 100%;">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search restaurants, cuisines, dishes..." style="width: 100%;">
+      </div>
+
+      <!-- Main Content: Sidebar + Listings -->
+      <div class="two-col-sidebar-left">
+        <!-- Left Sidebar - Filters -->
+        <aside>
+          <div class="card" style="position: sticky; top: 16px;">
+            <h4 style="margin-bottom: var(--space-md);">Filters</h4>
+
+            <!-- Cuisine Type -->
+            <div class="mb-lg">
+              <h5 style="margin-bottom: var(--space-sm);">Cuisine</h5>
+              <div class="flex-col gap-xs">
+                <label class="check-group"><input type="checkbox"> Italian</label>
+                <label class="check-group"><input type="checkbox"> Chinese</label>
+                <label class="check-group"><input type="checkbox"> Mexican</label>
+                <label class="check-group"><input type="checkbox"> Indian</label>
+              </div>
+            </div>
+
+            <!-- Dietary -->
+            <div class="mb-lg">
+              <h5 style="margin-bottom: var(--space-sm);">Dietary</h5>
+              <div class="flex-col gap-xs">
+                <label class="check-group"><input type="checkbox"> Vegetarian</label>
+                <label class="check-group"><input type="checkbox"> Vegan</label>
+                <label class="check-group"><input type="checkbox"> Gluten-Free</label>
+                <label class="check-group"><input type="checkbox"> Halal</label>
+                <label class="check-group"><input type="checkbox"> Kosher</label>
+              </div>
+            </div>
+
+            <!-- Rating -->
+            <div class="mb-lg">
+              <h5 style="margin-bottom: var(--space-sm);">Rating</h5>
+              <div class="flex-col gap-xs">
+                <label class="check-group"><input type="checkbox"> 4+ Stars</label>
+                <label class="check-group"><input type="checkbox"> 3+ Stars</label>
+                <label class="check-group"><input type="checkbox"> 2+ Stars</label>
+              </div>
+            </div>
+
+            <!-- Delivery Fee -->
+            <div>
+              <h5 style="margin-bottom: var(--space-sm);">Delivery Fee</h5>
+              <div class="flex-col gap-xs">
+                <label class="check-group"><input type="checkbox"> Free</label>
+                <label class="check-group"><input type="checkbox"> Under $3</label>
+                <label class="check-group"><input type="checkbox"> Under $5</label>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right Content - Restaurant Cards -->
+        <div>
+          <!-- Results Header -->
+          <div class="flex-between mb-md">
+            <span class="body-large fw-semi">234 restaurants</span>
+            <div class="flex gap-sm" style="align-items: center;">
+              <span class="text-small text-muted">Sort by</span>
+              <select class="form-select" style="width: 192px;">
+                <option>Recommended</option>
+                <option>Rating</option>
+                <option>Delivery Time</option>
+                <option>Price</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Restaurant Cards -->
+          <div class="flex-col gap-sm">
+            <!-- Card 1 -->
+            <div class="card-bordered flex" style="gap: var(--space-sm); overflow: hidden; padding: 0;">
+              <div style="width: 256px; min-width: 256px; min-height: 192px; background: var(--medium-gray);"></div>
+              <div style="padding: var(--space-sm); flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <div class="flex-between mb-xs">
+                  <div class="placeholder-lg" style="width: 192px;"></div>
+                  <span class="badge badge-primary">⭐ 4.5</span>
+                </div>
+                <div class="placeholder-sm mb-sm" style="width: 80%;"></div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge">Italian</span>
+                  <span class="badge">Pizza</span>
+                  <span class="badge">$$</span>
+                </div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge badge-success" style="font-size: 11px;">Free Delivery</span>
+                  <span class="badge" style="font-size: 11px;">30 min</span>
+                </div>
+                <div class="flex-between" style="align-items: flex-end;">
+                  <div class="placeholder-sm" style="width: 128px;"></div>
+                  <a href="restaurant-detail.html" class="btn btn-primary btn-sm">View Menu</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-bordered flex" style="gap: var(--space-sm); overflow: hidden; padding: 0;">
+              <div style="width: 256px; min-width: 256px; min-height: 192px; background: var(--medium-gray);"></div>
+              <div style="padding: var(--space-sm); flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <div class="flex-between mb-xs">
+                  <div class="placeholder-lg" style="width: 180px;"></div>
+                  <span class="badge badge-primary">⭐ 4.2</span>
+                </div>
+                <div class="placeholder-sm mb-sm" style="width: 75%;"></div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge">Chinese</span>
+                  <span class="badge">Noodles</span>
+                  <span class="badge">$</span>
+                </div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge" style="font-size: 11px;">$2.99 Delivery</span>
+                  <span class="badge" style="font-size: 11px;">25 min</span>
+                </div>
+                <div class="flex-between" style="align-items: flex-end;">
+                  <div class="placeholder-sm" style="width: 128px;"></div>
+                  <a href="restaurant-detail.html" class="btn btn-primary btn-sm">View Menu</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card-bordered flex" style="gap: var(--space-sm); overflow: hidden; padding: 0;">
+              <div style="width: 256px; min-width: 256px; min-height: 192px; background: var(--medium-gray);"></div>
+              <div style="padding: var(--space-sm); flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <div class="flex-between mb-xs">
+                  <div class="placeholder-lg" style="width: 200px;"></div>
+                  <span class="badge badge-primary">⭐ 4.8</span>
+                </div>
+                <div class="placeholder-sm mb-sm" style="width: 70%;"></div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge">Mexican</span>
+                  <span class="badge">Tacos</span>
+                  <span class="badge">$$</span>
+                </div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge badge-success" style="font-size: 11px;">Free Delivery</span>
+                  <span class="badge" style="font-size: 11px;">20 min</span>
+                </div>
+                <div class="flex-between" style="align-items: flex-end;">
+                  <div class="placeholder-sm" style="width: 128px;"></div>
+                  <a href="restaurant-detail.html" class="btn btn-primary btn-sm">View Menu</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card-bordered flex" style="gap: var(--space-sm); overflow: hidden; padding: 0;">
+              <div style="width: 256px; min-width: 256px; min-height: 192px; background: var(--medium-gray);"></div>
+              <div style="padding: var(--space-sm); flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <div class="flex-between mb-xs">
+                  <div class="placeholder-lg" style="width: 170px;"></div>
+                  <span class="badge badge-primary">⭐ 4.0</span>
+                </div>
+                <div class="placeholder-sm mb-sm" style="width: 65%;"></div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge">Indian</span>
+                  <span class="badge">Curry</span>
+                  <span class="badge">$$</span>
+                </div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge" style="font-size: 11px;">$1.99 Delivery</span>
+                  <span class="badge" style="font-size: 11px;">35 min</span>
+                </div>
+                <div class="flex-between" style="align-items: flex-end;">
+                  <div class="placeholder-sm" style="width: 128px;"></div>
+                  <a href="restaurant-detail.html" class="btn btn-primary btn-sm">View Menu</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card-bordered flex" style="gap: var(--space-sm); overflow: hidden; padding: 0;">
+              <div style="width: 256px; min-width: 256px; min-height: 192px; background: var(--medium-gray);"></div>
+              <div style="padding: var(--space-sm); flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <div class="flex-between mb-xs">
+                  <div class="placeholder-lg" style="width: 190px;"></div>
+                  <span class="badge badge-primary">⭐ 4.6</span>
+                </div>
+                <div class="placeholder-sm mb-sm" style="width: 72%;"></div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge">Japanese</span>
+                  <span class="badge">Sushi</span>
+                  <span class="badge">$$$</span>
+                </div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge badge-success" style="font-size: 11px;">Free Delivery</span>
+                  <span class="badge" style="font-size: 11px;">40 min</span>
+                </div>
+                <div class="flex-between" style="align-items: flex-end;">
+                  <div class="placeholder-sm" style="width: 128px;"></div>
+                  <a href="restaurant-detail.html" class="btn btn-primary btn-sm">View Menu</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card-bordered flex" style="gap: var(--space-sm); overflow: hidden; padding: 0;">
+              <div style="width: 256px; min-width: 256px; min-height: 192px; background: var(--medium-gray);"></div>
+              <div style="padding: var(--space-sm); flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <div class="flex-between mb-xs">
+                  <div class="placeholder-lg" style="width: 185px;"></div>
+                  <span class="badge badge-primary">⭐ 4.3</span>
+                </div>
+                <div class="placeholder-sm mb-sm" style="width: 68%;"></div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge">American</span>
+                  <span class="badge">Burgers</span>
+                  <span class="badge">$</span>
+                </div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge" style="font-size: 11px;">$3.99 Delivery</span>
+                  <span class="badge" style="font-size: 11px;">15 min</span>
+                </div>
+                <div class="flex-between" style="align-items: flex-end;">
+                  <div class="placeholder-sm" style="width: 128px;"></div>
+                  <a href="restaurant-detail.html" class="btn btn-primary btn-sm">View Menu</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="card-bordered flex" style="gap: var(--space-sm); overflow: hidden; padding: 0;">
+              <div style="width: 256px; min-width: 256px; min-height: 192px; background: var(--medium-gray);"></div>
+              <div style="padding: var(--space-sm); flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <div class="flex-between mb-xs">
+                  <div class="placeholder-lg" style="width: 175px;"></div>
+                  <span class="badge badge-primary">⭐ 4.7</span>
+                </div>
+                <div class="placeholder-sm mb-sm" style="width: 78%;"></div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge">Thai</span>
+                  <span class="badge">Pan-Asian</span>
+                  <span class="badge">$$</span>
+                </div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge badge-success" style="font-size: 11px;">Free Delivery</span>
+                  <span class="badge" style="font-size: 11px;">28 min</span>
+                </div>
+                <div class="flex-between" style="align-items: flex-end;">
+                  <div class="placeholder-sm" style="width: 128px;"></div>
+                  <a href="restaurant-detail.html" class="btn btn-primary btn-sm">View Menu</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="card-bordered flex" style="gap: var(--space-sm); overflow: hidden; padding: 0;">
+              <div style="width: 256px; min-width: 256px; min-height: 192px; background: var(--medium-gray);"></div>
+              <div style="padding: var(--space-sm); flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <div class="flex-between mb-xs">
+                  <div class="placeholder-lg" style="width: 195px;"></div>
+                  <span class="badge badge-primary">⭐ 4.1</span>
+                </div>
+                <div class="placeholder-sm mb-sm" style="width: 60%;"></div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge">Mediterranean</span>
+                  <span class="badge">Healthy</span>
+                  <span class="badge">$$</span>
+                </div>
+                <div class="flex gap-xs mb-sm">
+                  <span class="badge" style="font-size: 11px;">$2.49 Delivery</span>
+                  <span class="badge" style="font-size: 11px;">32 min</span>
+                </div>
+                <div class="flex-between" style="align-items: flex-end;">
+                  <div class="placeholder-sm" style="width: 128px;"></div>
+                  <a href="restaurant-detail.html" class="btn btn-primary btn-sm">View Menu</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination">
+            <button class="page-btn">←</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

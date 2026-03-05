@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Detail - Food Delivery App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Wireframe Nav -->
+    <nav class="wireframe-nav">
+      <div class="nav-inner">
+        <span class="nav-label">Wireframes:</span>
+        <a href="index.html" class="nav-link">Landing</a>
+        <a href="restaurants.html" class="nav-link">Restaurant List</a>
+        <a href="restaurant-detail.html" class="nav-link active">Restaurant Detail</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+        <a href="checkout.html" class="nav-link">Checkout</a>
+        <a href="order-confirmation.html" class="nav-link">Order Confirm</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="register.html" class="nav-link">Register</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <a href="design-system.html" class="nav-link">Design System</a>
+      </div>
+    </nav>
+
+    <div class="page-main">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="logo-placeholder"></div>
+        <div class="top-bar-actions">
+          <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+      </div>
+
+      <h2 class="page-title">Restaurant Detail Page</h2>
+
+      <!-- Hero Banner -->
+      <section class="section">
+        <div style="position: relative; width: 100%; height: 256px; background: var(--medium-gray); border-radius: var(--radius); overflow: hidden;">
+          <!-- Overlay bar -->
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); padding: var(--space-sm) var(--space-md); display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="color: var(--white); font-size: 1.5rem; font-weight: 700; margin-bottom: 4px;">Restaurant Name</div>
+              <div style="color: var(--gray); font-size: 14px;">Fresh, authentic cuisine delivered to your door</div>
+              <div class="flex gap-xs mt-xs">
+                <span class="badge badge-primary">⭐ 4.5</span>
+                <span class="badge">Italian</span>
+                <span class="badge">$$</span>
+              </div>
+            </div>
+            <div class="flex gap-xs">
+              <button class="btn btn-secondary btn-sm" style="border-color: var(--white); color: var(--white);">♡</button>
+              <button class="btn btn-secondary btn-sm" style="border-color: var(--white); color: var(--white);">↗</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <div class="tab active">Menu</div>
+        <div class="tab">Reviews</div>
+        <div class="tab">Info</div>
+        <div class="tab">Promotions</div>
+      </div>
+
+      <!-- Menu + Cart Sidebar -->
+      <div style="display: grid; grid-template-columns: 1fr 292px; gap: var(--space-lg);">
+        <!-- Menu Content -->
+        <div>
+          <!-- Popular Items -->
+          <div class="section">
+            <h4 class="section-title">Popular Items</h4>
+            <div class="flex-col gap-sm">
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Margherita Pizza</div>
+                  <div class="text-small text-muted mb-xs">Classic pizza with fresh mozzarella, basil, and tomato sauce</div>
+                  <div class="text-small text-muted mb-sm">Serves 1-2 people</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$12.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Caesar Salad</div>
+                  <div class="text-small text-muted mb-xs">Crispy romaine, parmesan, croutons, and caesar dressing</div>
+                  <div class="text-small text-muted mb-sm">Fresh and light</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$9.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Tiramisu</div>
+                  <div class="text-small text-muted mb-xs">Classic Italian dessert with espresso and mascarpone</div>
+                  <div class="text-small text-muted mb-sm">Single serving</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$8.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Bruschetta</div>
+                  <div class="text-small text-muted mb-xs">Toasted bread with fresh tomatoes, garlic, and basil</div>
+                  <div class="text-small text-muted mb-sm">Appetizer - 4 pieces</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$7.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Course -->
+          <div class="section">
+            <h4 class="section-title">Main Course</h4>
+            <div class="flex-col gap-sm">
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Pasta Carbonara</div>
+                  <div class="text-small text-muted mb-xs">Creamy pasta with guanciale, egg, and pecorino romano</div>
+                  <div class="text-small text-muted mb-sm">Generous portion</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$15.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Grilled Salmon</div>
+                  <div class="text-small text-muted mb-xs">Atlantic salmon with herb butter and seasonal vegetables</div>
+                  <div class="text-small text-muted mb-sm">Chef's recommendation</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$18.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Chicken Parmesan</div>
+                  <div class="text-small text-muted mb-xs">Breaded chicken with marinara and melted mozzarella</div>
+                  <div class="text-small text-muted mb-sm">Served with spaghetti</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$14.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Risotto ai Funghi</div>
+                  <div class="text-small text-muted mb-xs">Creamy arborio rice with wild mushrooms and truffle oil</div>
+                  <div class="text-small text-muted mb-sm">Vegetarian option</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$16.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desserts -->
+          <div class="section">
+            <h4 class="section-title">Desserts</h4>
+            <div class="flex-col gap-sm">
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Panna Cotta</div>
+                  <div class="text-small text-muted mb-xs">Vanilla cream dessert with berry compote</div>
+                  <div class="text-small text-muted mb-sm">House specialty</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$7.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Gelato Trio</div>
+                  <div class="text-small text-muted mb-xs">Three scoops of artisan Italian gelato</div>
+                  <div class="text-small text-muted mb-sm">Ask for today's flavors</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$6.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Cannoli</div>
+                  <div class="text-small text-muted mb-xs">Crispy shells filled with sweet ricotta cream</div>
+                  <div class="text-small text-muted mb-sm">Set of 3</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$8.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">Affogato</div>
+                  <div class="text-small text-muted mb-xs">Vanilla gelato drowned in hot espresso</div>
+                  <div class="text-small text-muted mb-sm">Perfect after-dinner treat</div>
+                  <div class="flex-between">
+                    <span class="fw-bold">$5.99</span>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  </div>
+                </div>
+                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cart Sidebar -->
+        <aside>
+          <div class="card" style="position: sticky; top: 16px;">
+            <h5 style="margin-bottom: var(--space-md);">Your Order</h5>
+
+            <!-- Cart Item 1 -->
+            <div style="margin-bottom: var(--space-sm); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--medium-gray);">
+              <div class="flex-between mb-xs">
+                <span class="fw-semi" style="font-size: 14px;">Margherita Pizza</span>
+                <button style="background: none; border: none; cursor: pointer; font-size: 16px; color: var(--gray);">×</button>
+              </div>
+              <div class="text-small text-muted mb-xs">Classic with mozzarella and basil</div>
+              <div class="flex-between">
+                <div class="qty-controls">
+                  <button class="qty-btn">-</button>
+                  <span class="qty-value">2</span>
+                  <button class="qty-btn">+</button>
+                </div>
+                <span class="fw-semi">$25.98</span>
+              </div>
+            </div>
+
+            <!-- Cart Item 2 -->
+            <div style="margin-bottom: var(--space-sm); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--medium-gray);">
+              <div class="flex-between mb-xs">
+                <span class="fw-semi" style="font-size: 14px;">Caesar Salad</span>
+                <button style="background: none; border: none; cursor: pointer; font-size: 16px; color: var(--gray);">×</button>
+              </div>
+              <div class="text-small text-muted mb-xs">Fresh romaine with croutons</div>
+              <div class="flex-between">
+                <div class="qty-controls">
+                  <button class="qty-btn">-</button>
+                  <span class="qty-value">1</span>
+                  <button class="qty-btn">+</button>
+                </div>
+                <span class="fw-semi">$9.99</span>
+              </div>
+            </div>
+
+            <!-- Totals -->
+            <div class="flex-between mb-xs">
+              <span class="text-small text-muted">Subtotal</span>
+              <span class="text-small">$35.97</span>
+            </div>
+            <div class="flex-between mb-sm">
+              <span class="text-small text-muted">Delivery Fee</span>
+              <span class="text-small">$2.99</span>
+            </div>
+            <hr class="divider">
+            <div class="flex-between mb-md">
+              <span class="fw-bold">Total</span>
+              <span class="fw-bold">$38.96</span>
+            </div>
+
+            <a href="checkout.html" class="btn btn-primary btn-md btn-full">Checkout</a>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Bottom Section: Info + Ratings -->
+      <section class="section mt-xl">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg);">
+          <!-- Restaurant Info -->
+          <div class="card-bordered">
+            <h5 style="margin-bottom: var(--space-md);">Restaurant Info</h5>
+            <div class="flex-col gap-sm">
+              <div class="flex gap-sm" style="align-items: center;">
+                <span>📍</span>
+                <span class="text-small">123 Main Street, Downtown, NY 10001</span>
+              </div>
+              <div class="flex gap-sm" style="align-items: center;">
+                <span>📞</span>
+                <span class="text-small">(555) 123-4567</span>
+              </div>
+              <div class="flex gap-sm" style="align-items: center;">
+                <span>🕐</span>
+                <span class="text-small">Mon-Sun: 11:00 AM - 10:00 PM</span>
+              </div>
+              <div class="flex gap-sm" style="align-items: center;">
+                <span>🌐</span>
+                <span class="text-small">www.restaurant.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ratings -->
+          <div class="card-bordered">
+            <h5 style="margin-bottom: var(--space-md);">Ratings</h5>
+            <div class="flex-col gap-sm">
+              <div class="flex gap-sm" style="align-items: center;">
+                <span class="text-small" style="width: 96px;">Food Quality</span>
+                <div style="flex: 1; height: 8px; background: var(--medium-gray); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 90%; height: 100%; background: var(--primary); border-radius: 4px;"></div>
+                </div>
+                <span class="text-small fw-semi">4.5</span>
+              </div>
+              <div class="flex gap-sm" style="align-items: center;">
+                <span class="text-small" style="width: 96px;">Service</span>
+                <div style="flex: 1; height: 8px; background: var(--medium-gray); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 84%; height: 100%; background: var(--primary); border-radius: 4px;"></div>
+                </div>
+                <span class="text-small fw-semi">4.2</span>
+              </div>
+              <div class="flex gap-sm" style="align-items: center;">
+                <span class="text-small" style="width: 96px;">Delivery</span>
+                <div style="flex: 1; height: 8px; background: var(--medium-gray); border-radius: 4px; overflow: hidden;">
+                  <div style="width: 76%; height: 100%; background: var(--primary); border-radius: 4px;"></div>
+                </div>
+                <span class="text-small fw-semi">3.8</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

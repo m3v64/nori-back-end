@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile - Food Delivery App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Wireframe Nav -->
+    <nav class="wireframe-nav">
+      <div class="nav-inner">
+        <span class="nav-label">Wireframes:</span>
+        <a href="index.html" class="nav-link">Landing</a>
+        <a href="restaurants.html" class="nav-link">Restaurant List</a>
+        <a href="restaurant-detail.html" class="nav-link">Restaurant Detail</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+        <a href="checkout.html" class="nav-link">Checkout</a>
+        <a href="order-confirmation.html" class="nav-link">Order Confirm</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="register.html" class="nav-link">Register</a>
+        <a href="profile.html" class="nav-link active">Profile</a>
+        <a href="design-system.html" class="nav-link">Design System</a>
+      </div>
+    </nav>
+
+    <div class="page-main">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="logo-placeholder"></div>
+        <div class="top-bar-actions">
+          <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+      </div>
+
+      <h2 class="page-title">User Profile Page</h2>
+
+      <div class="two-col-sidebar-left">
+        <!-- Left Sidebar -->
+        <aside>
+          <!-- User Info Card -->
+          <div class="card-bordered p-md mb-md text-center">
+            <div class="placeholder-avatar" style="margin: 0 auto var(--space-sm);"></div>
+            <div class="fw-semi body-large">John Doe</div>
+            <div class="text-small text-muted">john.doe@email.com</div>
+          </div>
+
+          <!-- Navigation Menu -->
+          <div class="card-bordered" style="padding: var(--space-xs);">
+            <nav class="sidebar-nav">
+              <a href="#" class="sidebar-nav-item">Profile Settings</a>
+              <a href="#" class="sidebar-nav-item active">Order History</a>
+              <a href="#" class="sidebar-nav-item">Addresses</a>
+              <a href="#" class="sidebar-nav-item">Payment Methods</a>
+              <a href="#" class="sidebar-nav-item">Notifications</a>
+              <a href="#" class="sidebar-nav-item" style="color: var(--error);">Logout</a>
+            </nav>
+          </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <div>
+          <h3 style="margin-bottom: var(--space-md);">Order History</h3>
+
+          <!-- Search & Filter Bar -->
+          <div class="flex gap-sm mb-lg" style="flex-wrap: wrap;">
+            <div class="search-bar" style="flex: 1; min-width: 200px;">
+              <span class="search-icon">🔍</span>
+              <input type="text" placeholder="Search orders...">
+            </div>
+            <select class="form-select" style="width: 192px;">
+              <option>All Statuses</option>
+              <option>Delivered</option>
+              <option>In Progress</option>
+              <option>Cancelled</option>
+            </select>
+            <select class="form-select" style="width: 192px;">
+              <option>All Dates</option>
+              <option>Last 7 days</option>
+              <option>Last 30 days</option>
+              <option>Last 3 months</option>
+            </select>
+          </div>
+
+          <!-- Order Cards -->
+          <div class="flex-col gap-md">
+            <!-- Order 1 -->
+            <div class="card-bordered">
+              <div class="flex-between p-sm" style="border-bottom: 1px solid var(--medium-gray);">
+                <div>
+                  <span class="fw-semi">Order #FD-2026-0001</span>
+                  <span class="text-small text-muted" style="margin-left: var(--space-sm);">Feb 27, 2026</span>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <span class="badge badge-success">Delivered</span>
+                  <select class="form-select" style="width: 91px; padding: 4px 8px; font-size: 12px;">
+                    <option>Actions</option>
+                    <option>View</option>
+                    <option>Reorder</option>
+                  </select>
+                </div>
+              </div>
+              <div class="p-sm">
+                <!-- Item 1 -->
+                <div class="flex gap-sm mb-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Margherita Pizza</div>
+                    <div class="text-small text-muted">Classic with mozzarella</div>
+                    <div class="text-small text-muted">Extra cheese</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 1</div>
+                    <div class="fw-semi">$12.99</div>
+                  </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="flex gap-sm mb-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Caesar Salad</div>
+                    <div class="text-small text-muted">Fresh romaine lettuce</div>
+                    <div class="text-small text-muted">Dressing on the side</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 2</div>
+                    <div class="fw-semi">$19.98</div>
+                  </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="flex gap-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Tiramisu</div>
+                    <div class="text-small text-muted">Italian dessert</div>
+                    <div class="text-small text-muted">With espresso</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 1</div>
+                    <div class="fw-semi">$8.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-between p-sm" style="border-top: 1px solid var(--medium-gray);">
+                <div class="flex gap-xs">
+                  <button class="btn btn-secondary btn-sm">Previous</button>
+                  <button class="btn btn-secondary btn-sm">Next</button>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <a href="order-confirmation.html" class="text-primary text-small">View</a>
+                  <button class="btn btn-primary btn-sm">Reorder</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Order 2 -->
+            <div class="card-bordered">
+              <div class="flex-between p-sm" style="border-bottom: 1px solid var(--medium-gray);">
+                <div>
+                  <span class="fw-semi">Order #FD-2026-0002</span>
+                  <span class="text-small text-muted" style="margin-left: var(--space-sm);">Feb 25, 2026</span>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <span class="badge badge-success">Delivered</span>
+                  <select class="form-select" style="width: 91px; padding: 4px 8px; font-size: 12px;">
+                    <option>Actions</option>
+                    <option>View</option>
+                    <option>Reorder</option>
+                  </select>
+                </div>
+              </div>
+              <div class="p-sm">
+                <div class="flex gap-sm mb-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Pad Thai</div>
+                    <div class="text-small text-muted">Stir-fried noodles</div>
+                    <div class="text-small text-muted">With shrimp</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 1</div>
+                    <div class="fw-semi">$14.99</div>
+                  </div>
+                </div>
+                <div class="flex gap-sm mb-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Spring Rolls</div>
+                    <div class="text-small text-muted">Crispy vegetable rolls</div>
+                    <div class="text-small text-muted">Set of 4</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 1</div>
+                    <div class="fw-semi">$6.99</div>
+                  </div>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Mango Sticky Rice</div>
+                    <div class="text-small text-muted">Thai dessert</div>
+                    <div class="text-small text-muted">With coconut cream</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 1</div>
+                    <div class="fw-semi">$7.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-between p-sm" style="border-top: 1px solid var(--medium-gray);">
+                <div class="flex gap-xs">
+                  <button class="btn btn-secondary btn-sm">Previous</button>
+                  <button class="btn btn-secondary btn-sm">Next</button>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <a href="#" class="text-primary text-small">View</a>
+                  <button class="btn btn-primary btn-sm">Reorder</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Order 3 -->
+            <div class="card-bordered">
+              <div class="flex-between p-sm" style="border-bottom: 1px solid var(--medium-gray);">
+                <div>
+                  <span class="fw-semi">Order #FD-2026-0003</span>
+                  <span class="text-small text-muted" style="margin-left: var(--space-sm);">Feb 20, 2026</span>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <span class="badge badge-warning">In Progress</span>
+                  <select class="form-select" style="width: 91px; padding: 4px 8px; font-size: 12px;">
+                    <option>Actions</option>
+                    <option>Track</option>
+                    <option>Cancel</option>
+                  </select>
+                </div>
+              </div>
+              <div class="p-sm">
+                <div class="flex gap-sm mb-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Chicken Biryani</div>
+                    <div class="text-small text-muted">Aromatic basmati rice</div>
+                    <div class="text-small text-muted">With raita</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 2</div>
+                    <div class="fw-semi">$29.98</div>
+                  </div>
+                </div>
+                <div class="flex gap-sm mb-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Garlic Naan</div>
+                    <div class="text-small text-muted">Freshly baked bread</div>
+                    <div class="text-small text-muted">Set of 2</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 1</div>
+                    <div class="fw-semi">$4.99</div>
+                  </div>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Mango Lassi</div>
+                    <div class="text-small text-muted">Sweet yogurt drink</div>
+                    <div class="text-small text-muted">Large size</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 2</div>
+                    <div class="fw-semi">$9.98</div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-between p-sm" style="border-top: 1px solid var(--medium-gray);">
+                <div class="flex gap-xs">
+                  <button class="btn btn-secondary btn-sm">Previous</button>
+                  <button class="btn btn-secondary btn-sm">Next</button>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <a href="#" class="text-primary text-small">View</a>
+                  <button class="btn btn-primary btn-sm">Track</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Order 4 -->
+            <div class="card-bordered">
+              <div class="flex-between p-sm" style="border-bottom: 1px solid var(--medium-gray);">
+                <div>
+                  <span class="fw-semi">Order #FD-2026-0004</span>
+                  <span class="text-small text-muted" style="margin-left: var(--space-sm);">Feb 15, 2026</span>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <span class="badge badge-error">Cancelled</span>
+                  <select class="form-select" style="width: 91px; padding: 4px 8px; font-size: 12px;">
+                    <option>Actions</option>
+                    <option>View</option>
+                    <option>Reorder</option>
+                  </select>
+                </div>
+              </div>
+              <div class="p-sm">
+                <div class="flex gap-sm mb-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Sushi Platter</div>
+                    <div class="text-small text-muted">Assorted sushi rolls</div>
+                    <div class="text-small text-muted">12 pieces</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 1</div>
+                    <div class="fw-semi">$24.99</div>
+                  </div>
+                </div>
+                <div class="flex gap-sm mb-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Miso Soup</div>
+                    <div class="text-small text-muted">Traditional Japanese soup</div>
+                    <div class="text-small text-muted">With tofu</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 2</div>
+                    <div class="fw-semi">$7.98</div>
+                  </div>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Green Tea Ice Cream</div>
+                    <div class="text-small text-muted">Matcha flavor</div>
+                    <div class="text-small text-muted">2 scoops</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 1</div>
+                    <div class="fw-semi">$5.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-between p-sm" style="border-top: 1px solid var(--medium-gray);">
+                <div class="flex gap-xs">
+                  <button class="btn btn-secondary btn-sm">Previous</button>
+                  <button class="btn btn-secondary btn-sm">Next</button>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <a href="#" class="text-primary text-small">View</a>
+                  <button class="btn btn-primary btn-sm">Reorder</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Order 5 -->
+            <div class="card-bordered">
+              <div class="flex-between p-sm" style="border-bottom: 1px solid var(--medium-gray);">
+                <div>
+                  <span class="fw-semi">Order #FD-2026-0005</span>
+                  <span class="text-small text-muted" style="margin-left: var(--space-sm);">Feb 10, 2026</span>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <span class="badge badge-success">Delivered</span>
+                  <select class="form-select" style="width: 91px; padding: 4px 8px; font-size: 12px;">
+                    <option>Actions</option>
+                    <option>View</option>
+                    <option>Reorder</option>
+                  </select>
+                </div>
+              </div>
+              <div class="p-sm">
+                <div class="flex gap-sm mb-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Beef Tacos</div>
+                    <div class="text-small text-muted">Corn tortillas</div>
+                    <div class="text-small text-muted">Set of 3</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 2</div>
+                    <div class="fw-semi">$21.98</div>
+                  </div>
+                </div>
+                <div class="flex gap-sm mb-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Guacamole & Chips</div>
+                    <div class="text-small text-muted">Fresh avocado dip</div>
+                    <div class="text-small text-muted">With tortilla chips</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 1</div>
+                    <div class="fw-semi">$8.99</div>
+                  </div>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <div style="width: 64px; height: 64px; min-width: 64px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                  <div style="flex: 1;">
+                    <div class="fw-semi" style="font-size: 14px;">Churros</div>
+                    <div class="text-small text-muted">Cinnamon sugar coated</div>
+                    <div class="text-small text-muted">With chocolate sauce</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-small text-muted">Qty: 1</div>
+                    <div class="fw-semi">$6.99</div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-between p-sm" style="border-top: 1px solid var(--medium-gray);">
+                <div class="flex gap-xs">
+                  <button class="btn btn-secondary btn-sm">Previous</button>
+                  <button class="btn btn-secondary btn-sm">Next</button>
+                </div>
+                <div class="flex gap-sm" style="align-items: center;">
+                  <a href="#" class="text-primary text-small">View</a>
+                  <button class="btn btn-primary btn-sm">Reorder</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination">
+            <button class="page-btn">←</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

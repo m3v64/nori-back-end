@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - Food Delivery App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Wireframe Nav -->
+    <nav class="wireframe-nav">
+      <div class="nav-inner">
+        <span class="nav-label">Wireframes:</span>
+        <a href="index.html" class="nav-link">Landing</a>
+        <a href="restaurants.html" class="nav-link">Restaurant List</a>
+        <a href="restaurant-detail.html" class="nav-link">Restaurant Detail</a>
+        <a href="cart.html" class="nav-link active">Cart</a>
+        <a href="checkout.html" class="nav-link">Checkout</a>
+        <a href="order-confirmation.html" class="nav-link">Order Confirm</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="register.html" class="nav-link">Register</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <a href="design-system.html" class="nav-link">Design System</a>
+      </div>
+    </nav>
+
+    <div class="page-main">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="logo-placeholder"></div>
+        <div class="top-bar-actions">
+          <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+      </div>
+
+      <h2 class="page-title">Shopping Cart Page</h2>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">›</span>
+        <span>Shopping Cart</span>
+      </div>
+
+      <div class="two-col">
+        <!-- Left Column - Cart Items -->
+        <div>
+          <!-- Cart Header -->
+          <div class="section">
+            <h3 style="margin-bottom: var(--space-md);">Your Cart</h3>
+            <div class="flex-between" style="padding: var(--space-xs) 0; border-bottom: 2px solid var(--medium-gray); margin-bottom: var(--space-sm);">
+              <span class="fw-semi">Product</span>
+              <span class="fw-semi">Price</span>
+            </div>
+
+            <!-- Cart Item 1 -->
+            <div class="flex gap-sm" style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--medium-gray); align-items: center;">
+              <div style="width: 96px; height: 96px; min-width: 96px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              <div style="flex: 1;">
+                <div class="flex-between mb-xs">
+                  <span class="fw-semi body-large">Margherita Pizza</span>
+                  <button style="background: none; border: none; cursor: pointer; font-size: 18px; color: var(--gray);">×</button>
+                </div>
+                <div class="text-small text-muted mb-xs">Classic pizza with fresh mozzarella</div>
+                <div class="text-small text-muted mb-sm">From: Restaurant Name</div>
+                <div class="flex-between">
+                  <div class="qty-controls">
+                    <button class="qty-btn">-</button>
+                    <span class="qty-value">1</span>
+                    <button class="qty-btn">+</button>
+                  </div>
+                  <span class="fw-bold body-large">$12.99</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cart Item 2 -->
+            <div class="flex gap-sm" style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--medium-gray); align-items: center;">
+              <div style="width: 96px; height: 96px; min-width: 96px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              <div style="flex: 1;">
+                <div class="flex-between mb-xs">
+                  <span class="fw-semi body-large">Caesar Salad</span>
+                  <button style="background: none; border: none; cursor: pointer; font-size: 18px; color: var(--gray);">×</button>
+                </div>
+                <div class="text-small text-muted mb-xs">Crispy romaine with parmesan</div>
+                <div class="text-small text-muted mb-sm">From: Restaurant Name</div>
+                <div class="flex-between">
+                  <div class="qty-controls">
+                    <button class="qty-btn">-</button>
+                    <span class="qty-value">2</span>
+                    <button class="qty-btn">+</button>
+                  </div>
+                  <span class="fw-bold body-large">$19.98</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cart Item 3 -->
+            <div class="flex gap-sm" style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--medium-gray); align-items: center;">
+              <div style="width: 96px; height: 96px; min-width: 96px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+              <div style="flex: 1;">
+                <div class="flex-between mb-xs">
+                  <span class="fw-semi body-large">Tiramisu</span>
+                  <button style="background: none; border: none; cursor: pointer; font-size: 18px; color: var(--gray);">×</button>
+                </div>
+                <div class="text-small text-muted mb-xs">Classic Italian dessert with espresso</div>
+                <div class="text-small text-muted mb-sm">From: Restaurant Name</div>
+                <div class="flex-between">
+                  <div class="qty-controls">
+                    <button class="qty-btn">-</button>
+                    <span class="qty-value">1</span>
+                    <button class="qty-btn">+</button>
+                  </div>
+                  <span class="fw-bold body-large">$8.99</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="restaurants.html" class="btn btn-secondary btn-md btn-full mt-md">Continue Shopping</a>
+          </div>
+
+          <!-- Promo Code -->
+          <div class="section">
+            <h5 style="margin-bottom: var(--space-sm);">Promo Code</h5>
+            <div class="flex gap-sm">
+              <input type="text" class="form-input" placeholder="Enter promo code..." style="flex: 1;">
+              <button class="btn btn-secondary btn-md">Apply</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column - Order Summary -->
+        <aside>
+          <div class="card" style="position: sticky; top: 16px;">
+            <h4 style="margin-bottom: var(--space-md);">Order Summary</h4>
+
+            <!-- Delivery Location -->
+            <div class="form-group mb-md">
+              <label class="form-label">Delivery Location</label>
+              <select class="form-select">
+                <option>Home - 123 Main St</option>
+                <option>Office - 456 Work Ave</option>
+              </select>
+            </div>
+
+            <!-- Delivery Info -->
+            <div class="form-group mb-md">
+              <label class="form-label">Estimated Delivery</label>
+              <div class="card-bordered" style="padding: var(--space-sm);">
+                <div class="text-small text-muted">Estimated delivery time: 25-35 min</div>
+                <div class="text-small text-muted">Your order will be delivered by a driver</div>
+              </div>
+            </div>
+
+            <!-- Price Breakdown -->
+            <div class="flex-between mb-xs">
+              <span class="text-muted">Subtotal</span>
+              <span>$41.96</span>
+            </div>
+            <div class="flex-between mb-xs">
+              <span class="text-muted">Delivery Fee</span>
+              <span>$2.99</span>
+            </div>
+            <div class="flex-between mb-xs">
+              <span class="text-muted">Tax</span>
+              <span>$3.60</span>
+            </div>
+            <div class="flex-between mb-sm">
+              <span class="text-muted">Discount</span>
+              <span style="color: var(--success);">-$0.00</span>
+            </div>
+            <hr class="divider">
+            <div class="flex-between mb-lg">
+              <span class="fw-bold body-large">Total</span>
+              <span class="fw-bold body-large">$48.55</span>
+            </div>
+
+            <a href="checkout.html" class="btn btn-primary btn-lg btn-full mb-sm">Proceed to Checkout</a>
+            <div class="text-center text-small text-muted">🔒 Secure checkout</div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Recommended Section -->
+      <section class="section mt-xl">
+        <h4 class="section-title">You May Also Like</h4>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-sm);">
+          <div class="card-bordered">
+            <div class="placeholder-img"></div>
+            <div class="placeholder-lg mt-xs" style="width: 70%;"></div>
+            <div class="placeholder-sm mt-xs" style="width: 50%;"></div>
+            <div class="fw-bold mt-xs">$11.99</div>
+          </div>
+          <div class="card-bordered">
+            <div class="placeholder-img"></div>
+            <div class="placeholder-lg mt-xs" style="width: 65%;"></div>
+            <div class="placeholder-sm mt-xs" style="width: 45%;"></div>
+            <div class="fw-bold mt-xs">$9.99</div>
+          </div>
+          <div class="card-bordered">
+            <div class="placeholder-img"></div>
+            <div class="placeholder-lg mt-xs" style="width: 72%;"></div>
+            <div class="placeholder-sm mt-xs" style="width: 55%;"></div>
+            <div class="fw-bold mt-xs">$14.99</div>
+          </div>
+          <div class="card-bordered">
+            <div class="placeholder-img"></div>
+            <div class="placeholder-lg mt-xs" style="width: 68%;"></div>
+            <div class="placeholder-sm mt-xs" style="width: 48%;"></div>
+            <div class="fw-bold mt-xs">$7.99</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

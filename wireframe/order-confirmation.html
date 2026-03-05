@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation - Food Delivery App</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Wireframe Nav -->
+    <nav class="wireframe-nav">
+      <div class="nav-inner">
+        <span class="nav-label">Wireframes:</span>
+        <a href="index.html" class="nav-link">Landing</a>
+        <a href="restaurants.html" class="nav-link">Restaurant List</a>
+        <a href="restaurant-detail.html" class="nav-link">Restaurant Detail</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+        <a href="checkout.html" class="nav-link">Checkout</a>
+        <a href="order-confirmation.html" class="nav-link active">Order Confirm</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="register.html" class="nav-link">Register</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <a href="design-system.html" class="nav-link">Design System</a>
+      </div>
+    </nav>
+
+    <div class="page-main">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="logo-placeholder"></div>
+        <div class="top-bar-actions">
+          <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+      </div>
+
+      <h2 class="page-title">Order Confirmation Page</h2>
+
+      <!-- Success Banner -->
+      <section class="section">
+        <div style="background: var(--light-gray); border: 2px solid var(--black); border-radius: var(--radius); padding: var(--space-xl); text-align: center;">
+          <!-- Checkmark Circle -->
+          <div style="width: 96px; height: 96px; border-radius: 50%; background: var(--success); display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-md); font-size: 48px; color: var(--white);">✓</div>
+          <h2 style="margin-bottom: var(--space-sm);">Order Confirmed!</h2>
+          <p class="body-large text-muted" style="margin-bottom: var(--space-sm);">Thank you for your order</p>
+          <p class="fw-semi" style="margin-bottom: var(--space-xs);">Order #FD-2026-0001</p>
+          <p class="text-small text-muted">February 27, 2026 at 12:30 PM</p>
+        </div>
+      </section>
+
+      <div class="two-col">
+        <!-- Left Column -->
+        <div>
+          <!-- Delivery Details -->
+          <div class="section">
+            <h4 class="section-title">Delivery Details</h4>
+            <div class="card-bordered p-md">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
+                <div>
+                  <div class="text-small text-muted mb-xs">Delivery Address</div>
+                  <div class="fw-semi">123 Main Street, Apt 4B</div>
+                </div>
+                <div>
+                  <div class="text-small text-muted mb-xs">Estimated Delivery</div>
+                  <div class="fw-semi">25-35 minutes</div>
+                </div>
+                <div>
+                  <div class="text-small text-muted mb-xs">Contact Number</div>
+                  <div class="fw-semi">(555) 123-4567</div>
+                </div>
+                <div>
+                  <div class="text-small text-muted mb-xs">Delivery Method</div>
+                  <div class="fw-semi">Standard Delivery</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Tracking -->
+          <div class="section">
+            <h4 class="section-title">Order Tracking</h4>
+            <div class="card-bordered p-md">
+              <div class="timeline">
+                <div class="timeline-step">
+                  <div class="timeline-dot filled">✓</div>
+                  <div class="timeline-content">
+                    <div class="fw-semi">Order Placed</div>
+                    <div class="text-small text-muted">Your order has been confirmed</div>
+                  </div>
+                  <span class="timeline-time">12:30 PM</span>
+                </div>
+                <div class="timeline-step">
+                  <div class="timeline-dot filled">✓</div>
+                  <div class="timeline-content">
+                    <div class="fw-semi">Preparing</div>
+                    <div class="text-small text-muted">Restaurant is preparing your food</div>
+                  </div>
+                  <span class="timeline-time">12:35 PM</span>
+                </div>
+                <div class="timeline-step">
+                  <div class="timeline-dot outline">3</div>
+                  <div class="timeline-content">
+                    <div class="fw-semi">On the Way</div>
+                    <div class="text-small text-muted">Driver is picking up your order</div>
+                  </div>
+                  <span class="timeline-time">~12:50 PM</span>
+                </div>
+                <div class="timeline-step">
+                  <div class="timeline-dot outline">4</div>
+                  <div class="timeline-content">
+                    <div class="fw-semi">Delivered</div>
+                    <div class="text-small text-muted">Estimated arrival at your door</div>
+                  </div>
+                  <span class="timeline-time">~1:05 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Items -->
+          <div class="section">
+            <h4 class="section-title">Order Items</h4>
+            <div class="card-bordered p-md">
+              <div class="flex gap-sm mb-md" style="align-items: center; padding-bottom: var(--space-sm); border-bottom: 1px solid var(--medium-gray);">
+                <div style="width: 80px; height: 80px; min-width: 80px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                <div style="flex: 1;">
+                  <div class="fw-semi">Margherita Pizza</div>
+                  <div class="text-small text-muted">Classic with fresh mozzarella</div>
+                  <div class="text-small text-muted">Extra cheese</div>
+                </div>
+                <div class="text-right">
+                  <span class="badge mb-xs">Qty: 1</span>
+                  <div class="fw-bold">$12.99</div>
+                </div>
+              </div>
+              <div class="flex gap-sm mb-md" style="align-items: center; padding-bottom: var(--space-sm); border-bottom: 1px solid var(--medium-gray);">
+                <div style="width: 80px; height: 80px; min-width: 80px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                <div style="flex: 1;">
+                  <div class="fw-semi">Caesar Salad</div>
+                  <div class="text-small text-muted">Romaine, parmesan, croutons</div>
+                  <div class="text-small text-muted">Dressing on the side</div>
+                </div>
+                <div class="text-right">
+                  <span class="badge mb-xs">Qty: 2</span>
+                  <div class="fw-bold">$19.98</div>
+                </div>
+              </div>
+              <div class="flex gap-sm" style="align-items: center;">
+                <div style="width: 80px; height: 80px; min-width: 80px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                <div style="flex: 1;">
+                  <div class="fw-semi">Tiramisu</div>
+                  <div class="text-small text-muted">Classic Italian dessert</div>
+                  <div class="text-small text-muted">Espresso and mascarpone</div>
+                </div>
+                <div class="text-right">
+                  <span class="badge mb-xs">Qty: 1</span>
+                  <div class="fw-bold">$8.99</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <aside>
+          <!-- Delivery Address Card -->
+          <div class="card-bordered p-md mb-md">
+            <h5 style="margin-bottom: var(--space-sm);">Delivery Address</h5>
+            <div class="text-small mb-xs">123 Main Street</div>
+            <div class="text-small mb-sm">Apt 4B, New York, NY 10001</div>
+            <div class="text-small text-muted mb-xs">Contact</div>
+            <div class="text-small">(555) 123-4567</div>
+          </div>
+
+          <!-- Order Summary Card -->
+          <div class="card-bordered p-md mb-md">
+            <h5 style="margin-bottom: var(--space-sm);">Order Summary</h5>
+            <div class="flex-between mb-xs">
+              <span class="text-small text-muted">Subtotal</span>
+              <span class="text-small">$41.96</span>
+            </div>
+            <div class="flex-between mb-xs">
+              <span class="text-small text-muted">Delivery Fee</span>
+              <span class="text-small">$2.99</span>
+            </div>
+            <div class="flex-between mb-sm">
+              <span class="text-small text-muted">Tax</span>
+              <span class="text-small">$3.60</span>
+            </div>
+            <hr class="divider">
+            <div class="flex-between mb-sm">
+              <span class="fw-bold">Total</span>
+              <span class="fw-bold">$48.55</span>
+            </div>
+            <div class="text-small text-muted">Paid with Credit Card ending in 4242</div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex-col gap-sm mb-md">
+            <button class="btn btn-primary btn-md btn-full">Track Order</button>
+            <button class="btn btn-secondary btn-md btn-full">View Receipt</button>
+            <a href="restaurants.html" class="btn btn-secondary btn-md btn-full">Reorder</a>
+          </div>
+
+          <!-- Help Card -->
+          <div class="card-bordered p-md">
+            <h5 style="margin-bottom: var(--space-xs);">Need Help?</h5>
+            <div class="text-small text-muted mb-xs">Having issues with your order? Our support team is here to help.</div>
+            <a href="#" class="text-small text-primary">Contact Support →</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
