@@ -1,73 +1,52 @@
-@extends('layouts.app')
+<x-guest-layout>
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
 
-@section('title', 'Register - Food Delivery App')
-
-@section('content')
-      <h2 class="page-title">Register Page</h2>
-
-      <!-- Centered Register Card -->
-      <div style="display: flex; justify-content: center; padding: var(--space-xl) 0;">
-        <div class="card" style="width: 100%; max-width: 448px; padding: var(--space-xl) var(--space-lg);">
-          <!-- Logo -->
-          <div style="width: 160px; height: 48px; background: var(--medium-gray); border-radius: var(--radius); margin: 0 auto var(--space-md);"></div>
-
-          <!-- Title -->
-          <h3 class="text-center" style="margin-bottom: var(--space-xs);">Create Account</h3>
-          <p class="text-center text-muted body-large" style="margin-bottom: var(--space-lg);">Join us and start ordering</p>
-
-          <!-- Form -->
-          <form method="POST" action="{{ route('register') }}">
-            @csrf
-            <div class="form-row mb-md">
-              <div class="form-group">
-                <label class="form-label">First Name</label>
-                <input type="text" name="first_name" class="form-input" placeholder="First name">
-              </div>
-              <div class="form-group">
-                <label class="form-label">Last Name</label>
-                <input type="text" name="last_name" class="form-input" placeholder="Last name">
-              </div>
-            </div>
-
-            <div class="form-group mb-md">
-              <label class="form-label">Email</label>
-              <input type="email" name="email" class="form-input" placeholder="Enter your email address">
-            </div>
-
-            <div class="form-group mb-md">
-              <label class="form-label">Password</label>
-              <input type="password" name="password" class="form-input" placeholder="Create a password">
-            </div>
-
-            <div class="form-group mb-md">
-              <label class="form-label">Confirm Password</label>
-              <input type="password" name="password_confirmation" class="form-input" placeholder="Confirm your password">
-            </div>
-
-            <label class="check-group mb-lg">
-              <input type="checkbox" name="terms"> <span class="text-small">I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy Policy</a></span>
-            </label>
-
-            <button type="submit" class="btn btn-primary btn-md btn-full mb-lg">Create Account</button>
-
-            <!-- Divider -->
-            <div class="divider-text mb-lg">OR</div>
-
-            <!-- Social Buttons -->
-            <button type="button" class="btn btn-secondary btn-md btn-full mb-sm" style="gap: var(--space-sm);">
-              <span style="width: 24px; height: 24px; background: var(--medium-gray); border-radius: 50%; display: inline-block;"></span>
-              Continue with Google
-            </button>
-            <button type="button" class="btn btn-secondary btn-md btn-full mb-lg" style="gap: var(--space-sm);">
-              <span style="width: 24px; height: 24px; background: var(--medium-gray); border-radius: 50%; display: inline-block;"></span>
-              Continue with Facebook
-            </button>
-
-            <!-- Bottom Text -->
-            <p class="text-center text-small text-muted">
-              Already have an account? <a href="{{ route('login') }}" class="text-primary">Sign in</a>
-            </p>
-          </form>
+        <!-- Name -->
+        <div>
+            <x-input-label for="name" :value="__('Name')" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
-      </div>
-@endsection
+
+        <!-- Email Address -->
+        <div class="mt-4">
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Password -->
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
+
+            <x-text-input id="password" class="block mt-1 w-full"
+                            type="password"
+                            name="password"
+                            required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="mt-4">
+            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+
+            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                            type="password"
+                            name="password_confirmation" required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+
+        <div class="flex items-center justify-end mt-4">
+            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+                {{ __('Already registered?') }}
+            </a>
+
+            <x-primary-button class="ms-4">
+                {{ __('Register') }}
+            </x-primary-button>
+        </div>
+    </form>
+</x-guest-layout>
