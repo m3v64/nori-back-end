@@ -9,7 +9,7 @@
 	<h1>Menu Data (dishes table)</h1>
 
 	@if ($menus->isEmpty())
-		<p>No menu items found in the database.</p>
+		<p>No menu items found.</p>
 	@else
 		<p>Total items: {{ $menus->count() }}</p>
 
