@@ -7,31 +7,39 @@ use Illuminate\Support\Facades\DB;
 
 class OrderSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $userIds = DB::table('users')->pluck('id');
-        $dishes = DB::table('dishes')->get(['id', 'price']);
+        $restaurants = DB::table('restaurants')->pluck('id');
 
-        if ($userIds->isEmpty() || $dishes->isEmpty()) {
+        if ($userIds->isEmpty() || $restaurants->isEmpty()) {
             return;
         }
 
-        $orderCount = 18;
+        $statuses = ['pending', 'confirmed', 'preparing', 'delivering', 'delivered', 'cancelled'];
 
-        for ($i = 1; $i <= $orderCount; $i++) {
+        for ($i = 1; $i <= 18; $i++) {
+            $restaurantId = $restaurants->random();
+            $dishes = DB::table('dishes')
+                ->where('restaurant_id', $restaurantId)
+                ->get(['id', 'price']);
+
+            if ($dishes->isEmpty()) {
+                continue;
+            }
+
             $selectedDishes = $dishes
                 ->shuffle()
                 ->take(fake()->numberBetween(1, min(4, $dishes->count())));
 
             $orderId = DB::table('orders')->insertGetId([
                 'user_id' => $userIds->random(),
+                'restaurant_id' => $restaurantId,
                 'title' => 'Order #'.str_pad((string) $i, 4, '0', STR_PAD_LEFT),
                 'details' => fake()->optional()->sentence(),
                 'placed_at' => fake()->dateTimeBetween('-30 days', 'now'),
                 'total_price' => $selectedDishes->sum('price'),
+                'status' => fake()->randomElement($statuses),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

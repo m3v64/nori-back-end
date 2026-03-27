@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.wireframe')
 
 @section('title', 'Checkout - Food Delivery App')
 

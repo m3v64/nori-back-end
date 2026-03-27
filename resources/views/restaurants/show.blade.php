@@ -1,190 +1,230 @@
-@extends('layouts.app')
+@extends('layouts.wireframe')
 
-@section('title', 'Restaurant Detail - Food Delivery App')
+@section('title', $restaurant->name . ' - Nori')
 
 @section('content')
-      <h2 class="page-title">Restaurant Detail Page</h2>
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="{{ route('home') }}">Home</a>
+        <span class="breadcrumb-separator">&rsaquo;</span>
+        <a href="{{ route('restaurants.index') }}">Restaurants</a>
+        <span class="breadcrumb-separator">&rsaquo;</span>
+        <span>{{ $restaurant->name }}</span>
+      </div>
 
-      <!-- Hero Banner -->
+      <!-- Restaurant Hero -->
       <section class="section">
-        <div style="position: relative; width: 100%; height: 256px; background: var(--medium-gray); border-radius: var(--radius); overflow: hidden;">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); padding: var(--space-sm) var(--space-md); display: flex; align-items: center; justify-content: space-between;">
-            <div>
-              <div style="color: var(--white); font-size: 1.5rem; font-weight: 700; margin-bottom: 4px;">Restaurant Name</div>
-              <div style="color: var(--gray); font-size: 14px;">Fresh, authentic cuisine delivered to your door</div>
-              <div class="flex gap-xs mt-xs">
-                <span class="badge badge-primary"><x-icon name="star" /> 4.5</span>
-                <span class="badge">Italian</span>
-                <span class="badge">$$</span>
+        <div style="border: 2px solid var(--black); border-radius: var(--radius); overflow: hidden;">
+          <x-placeholder-image :src="$restaurant->image" :alt="$restaurant->name" :width="1280" :height="350" />
+          <div style="padding: var(--space-md);">
+            <div class="flex-between mb-sm">
+              <div>
+                <h2 style="margin-bottom: var(--space-xs);">{{ $restaurant->name }}</h2>
+                <p class="body-large text-muted">{{ $restaurant->food_type }} · {{ $restaurant->location }}</p>
+              </div>
+              <div class="flex gap-sm" style="align-items: flex-start;">
+                <span class="badge badge-primary" style="font-size: 16px; padding: 8px 16px;">
+                  <x-icon name="star" /> {{ $restaurant->rating }}
+                </span>
               </div>
             </div>
-            <div class="flex gap-xs">
-              <button class="btn btn-secondary btn-sm" style="border-color: var(--white); color: var(--white);"><x-icon name="heart" /></button>
-              <button class="btn btn-secondary btn-sm" style="border-color: var(--white); color: var(--white);"><x-icon name="share" /></button>
+            <p class="mb-sm">{{ $restaurant->description }}</p>
+            <div class="flex gap-sm">
+              <span class="badge"><x-icon name="clock" /> {{ $restaurant->delivery_minutes }} min delivery</span>
+              <span class="badge {{ $restaurant->delivery_fee === 0 ? 'badge-success' : '' }}">
+                {{ $restaurant->delivery_fee ? '€' . number_format($restaurant->delivery_fee / 100, 2) . ' Delivery Fee' : 'Free Delivery' }}
+              </span>
+              <span class="badge">{{ $restaurant->reviews->count() }} reviews</span>
+              @if($restaurant->tags)
+                @foreach (explode(',', $restaurant->tags) as $tag)
+                  <span class="badge">{{ trim($tag) }}</span>
+                @endforeach
+              @endif
             </div>
           </div>
         </div>
       </section>
 
+      <div x-data="{ tab: 'menu' }">
       <!-- Tabs -->
       <div class="tabs">
-        <div class="tab active">Menu</div>
-        <div class="tab">Reviews</div>
-        <div class="tab">Info</div>
-        <div class="tab">Promotions</div>
+        <div class="tab" :class="{ active: tab === 'menu' }" @click="tab = 'menu'">Menu</div>
+        <div class="tab" :class="{ active: tab === 'reviews' }" @click="tab = 'reviews'">Reviews ({{ $restaurant->reviews->count() }})</div>
+        <div class="tab" :class="{ active: tab === 'info' }" @click="tab = 'info'">Info</div>
       </div>
 
-      <!-- Menu + Cart Sidebar -->
-      <div style="display: grid; grid-template-columns: 1fr 292px; gap: var(--space-lg);">
-        <!-- Menu Content -->
-        <div>
-          @php
-            $sections = [
-              'Popular Items' => [
-                ['name' => 'Margherita Pizza', 'desc' => 'Classic pizza with fresh mozzarella, basil, and tomato sauce', 'note' => 'Serves 1-2 people', 'price' => '$12.99'],
-                ['name' => 'Caesar Salad', 'desc' => 'Crispy romaine, parmesan, croutons, and caesar dressing', 'note' => 'Fresh and light', 'price' => '$9.99'],
-                ['name' => 'Tiramisu', 'desc' => 'Classic Italian dessert with espresso and mascarpone', 'note' => 'Single serving', 'price' => '$8.99'],
-                ['name' => 'Bruschetta', 'desc' => 'Toasted bread with fresh tomatoes, garlic, and basil', 'note' => 'Appetizer - 4 pieces', 'price' => '$7.99'],
-              ],
-              'Main Course' => [
-                ['name' => 'Pasta Carbonara', 'desc' => 'Creamy pasta with guanciale, egg, and pecorino romano', 'note' => 'Generous portion', 'price' => '$15.99'],
-                ['name' => 'Grilled Salmon', 'desc' => 'Atlantic salmon with herb butter and seasonal vegetables', 'note' => "Chef's recommendation", 'price' => '$18.99'],
-                ['name' => 'Chicken Parmesan', 'desc' => 'Breaded chicken with marinara and melted mozzarella', 'note' => 'Served with spaghetti', 'price' => '$14.99'],
-                ['name' => 'Risotto ai Funghi', 'desc' => 'Creamy arborio rice with wild mushrooms and truffle oil', 'note' => 'Vegetarian option', 'price' => '$16.99'],
-              ],
-              'Desserts' => [
-                ['name' => 'Panna Cotta', 'desc' => 'Vanilla cream dessert with berry compote', 'note' => 'House specialty', 'price' => '$7.99'],
-                ['name' => 'Gelato Trio', 'desc' => 'Three scoops of artisan Italian gelato', 'note' => "Ask for today's flavors", 'price' => '$6.99'],
-                ['name' => 'Cannoli', 'desc' => 'Crispy shells filled with sweet ricotta cream', 'note' => 'Set of 3', 'price' => '$8.99'],
-                ['name' => 'Affogato', 'desc' => 'Vanilla gelato drowned in hot espresso', 'note' => 'Perfect after-dinner treat', 'price' => '$5.99'],
-              ],
-            ];
-          @endphp
-
-          @foreach ($sections as $title => $items)
-          <div class="section">
-            <h4 class="section-title">{{ $title }}</h4>
-            <div class="flex-col gap-sm">
-              @foreach ($items as $item)
-              <div class="card-bordered flex" style="gap: var(--space-sm); padding: var(--space-sm);">
-                <div style="flex: 1;">
-                  <div style="font-weight: 600; font-size: 16px; margin-bottom: 4px;">{{ $item['name'] }}</div>
-                  <div class="text-small text-muted mb-xs">{{ $item['desc'] }}</div>
-                  <div class="text-small text-muted mb-sm">{{ $item['note'] }}</div>
-                  <div class="flex-between">
-                    <span class="fw-bold">{{ $item['price'] }}</span>
-                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+      <!-- Main Content -->
+        <!-- Menu Tab -->
+        <div x-show="tab === 'menu'">
+          <div class="two-col">
+            <!-- Menu Items -->
+            <div>
+              <h4 class="mb-md">Full Menu</h4>
+              <div class="flex-col gap-sm">
+                @foreach ($restaurant->dishes as $dish)
+                <div class="card-bordered flex" style="gap: var(--space-sm); overflow: hidden; padding: 0;">
+                  <div style="width: 160px; min-width: 160px; min-height: 128px;">
+                    <x-placeholder-image :src="$dish->image" :alt="$dish->name" :width="160" :height="128" style="width: 100%; height: 100%; object-fit: cover;" />
+                  </div>
+                  <div style="padding: var(--space-sm); flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                    <div class="flex-between mb-xs">
+                      <h5>{{ $dish->name }}</h5>
+                      <span class="fw-bold text-primary" style="font-size: 18px;">{{ $dish->formatted_price }}</span>
+                    </div>
+                    @if($dish->description)
+                      <p class="text-small text-muted mb-xs">{{ $dish->description }}</p>
+                    @endif
+                    <div class="flex-between" style="align-items: flex-end;">
+                      <div class="flex gap-xs" style="flex-wrap: wrap;">
+                        @if($dish->ingredients)
+                          <span class="text-small text-muted">{{ Str::limit($dish->ingredients, 60) }}</span>
+                        @endif
+                        @if($dish->allergies)
+                          <span class="badge badge-warning" style="font-size: 11px;">⚠ {{ $dish->allergies }}</span>
+                        @endif
+                      </div>
+                      <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    </div>
                   </div>
                 </div>
-                <div style="width: 128px; min-width: 128px; height: 125px; background: var(--medium-gray); border-radius: var(--radius);"></div>
+                @endforeach
               </div>
-              @endforeach
             </div>
+
+            <!-- Cart Sidebar -->
+            <aside>
+              <div class="card" style="position: sticky; top: 16px;">
+                <h4 class="mb-sm">Your Order</h4>
+                <hr class="divider">
+                <div class="flex-center" style="padding: var(--space-xl) 0; color: var(--gray);">
+                  <p class="text-small">Your cart is empty. Add items from the menu.</p>
+                </div>
+                <hr class="divider">
+                <div class="flex-between mb-xs">
+                  <span class="text-small text-muted">Subtotal</span>
+                  <span class="fw-semi">€0.00</span>
+                </div>
+                <div class="flex-between mb-xs">
+                  <span class="text-small text-muted">Delivery Fee</span>
+                  <span class="fw-semi">{{ $restaurant->formatted_delivery_fee }}</span>
+                </div>
+                <hr class="divider">
+                <div class="flex-between mb-md">
+                  <span class="fw-bold">Total</span>
+                  <span class="fw-bold text-primary">{{ $restaurant->formatted_delivery_fee }}</span>
+                </div>
+                <a href="{{ route('checkout') }}" class="btn btn-primary btn-md btn-full">Go to Checkout</a>
+              </div>
+            </aside>
           </div>
-          @endforeach
         </div>
 
-        <!-- Cart Sidebar -->
-        <aside>
-          <div class="card" style="position: sticky; top: 16px;">
-            <h5 style="margin-bottom: var(--space-md);">Your Order</h5>
-
-            <!-- Cart Item 1 -->
-            <div style="margin-bottom: var(--space-sm); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--medium-gray);">
-              <div class="flex-between mb-xs">
-                <span class="fw-semi" style="font-size: 14px;">Margherita Pizza</span>
-                <button style="background: none; border: none; cursor: pointer; font-size: 16px; color: var(--gray);">&times;</button>
-              </div>
-              <div class="text-small text-muted mb-xs">Classic with mozzarella and basil</div>
-              <div class="flex-between">
-                <div class="qty-controls">
-                  <button class="qty-btn">-</button>
-                  <span class="qty-value">2</span>
-                  <button class="qty-btn">+</button>
+        <!-- Reviews Tab -->
+        <div x-show="tab === 'reviews'" style="display: none;">
+          <div style="max-width: 800px;">
+            <!-- Rating Summary -->
+            <div class="card mb-lg">
+              <div class="flex gap-lg" style="align-items: center;">
+                <div class="text-center" style="min-width: 120px;">
+                  <div style="font-size: 48px; font-weight: 800; color: var(--primary);">{{ $restaurant->rating }}</div>
+                  <div class="flex-center gap-xs mb-xs">
+                    @for ($i = 1; $i <= 5; $i++)
+                      <x-icon name="star" />
+                    @endfor
+                  </div>
+                  <p class="text-small text-muted">{{ $restaurant->reviews->count() }} reviews</p>
                 </div>
-                <span class="fw-semi">$25.98</span>
-              </div>
-            </div>
-
-            <!-- Cart Item 2 -->
-            <div style="margin-bottom: var(--space-sm); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--medium-gray);">
-              <div class="flex-between mb-xs">
-                <span class="fw-semi" style="font-size: 14px;">Caesar Salad</span>
-                <button style="background: none; border: none; cursor: pointer; font-size: 16px; color: var(--gray);">&times;</button>
-              </div>
-              <div class="text-small text-muted mb-xs">Fresh romaine with croutons</div>
-              <div class="flex-between">
-                <div class="qty-controls">
-                  <button class="qty-btn">-</button>
-                  <span class="qty-value">1</span>
-                  <button class="qty-btn">+</button>
+                <div style="flex: 1;">
+                  @for ($stars = 5; $stars >= 1; $stars--)
+                    @php
+                      $count = $restaurant->reviews->where('rating', $stars)->count();
+                      $total = $restaurant->reviews->count();
+                      $percent = $total > 0 ? round(($count / $total) * 100) : 0;
+                    @endphp
+                    <div class="flex gap-sm mb-xs" style="align-items: center;">
+                      <span class="text-small fw-semi" style="width: 50px;">{{ $stars }} star{{ $stars !== 1 ? 's' : '' }}</span>
+                      <div style="flex: 1; height: 8px; background: var(--light-gray); border-radius: 4px; overflow: hidden;">
+                        <div class="rating-bar-fill" style="width: {{ $percent }}%;"></div>
+                      </div>
+                      <span class="text-small text-muted" style="width: 30px; text-align: right;">{{ $count }}</span>
+                    </div>
+                  @endfor
                 </div>
-                <span class="fw-semi">$9.99</span>
               </div>
             </div>
 
-            <!-- Totals -->
-            <div class="flex-between mb-xs">
-              <span class="text-small text-muted">Subtotal</span>
-              <span class="text-small">$35.97</span>
+            <!-- Individual Reviews -->
+            <div class="flex-col gap-sm">
+              @forelse ($restaurant->reviews as $review)
+              <div class="card-bordered">
+                <div class="flex-between mb-xs">
+                  <div class="flex gap-sm" style="align-items: center;">
+                    <div class="placeholder-avatar" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: var(--dark-gray);">
+                      {{ $review->user ? strtoupper(substr($review->user->name, 0, 1)) : '?' }}
+                    </div>
+                    <div>
+                      <span class="fw-semi">{{ $review->user?->name ?? 'Anonymous' }}</span>
+                      <p class="text-small text-muted">{{ $review->created_at->diffForHumans() }}</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-xs">
+                    @for ($i = 1; $i <= 5; $i++)
+                      <span style="color: {{ $i <= $review->rating ? 'var(--warning)' : 'var(--gray)' }};">
+                        <x-icon name="star" />
+                      </span>
+                    @endfor
+                  </div>
+                </div>
+                <p class="text-small">{{ $review->message }}</p>
+              </div>
+              @empty
+              <div class="card-bordered text-center" style="padding: var(--space-xl);">
+                <p class="text-muted">No reviews yet. Be the first to review this restaurant!</p>
+              </div>
+              @endforelse
             </div>
-            <div class="flex-between mb-sm">
-              <span class="text-small text-muted">Delivery Fee</span>
-              <span class="text-small">$2.99</span>
-            </div>
-            <hr class="divider">
-            <div class="flex-between mb-md">
-              <span class="fw-bold">Total</span>
-              <span class="fw-bold">$38.96</span>
-            </div>
-
-            <a href="{{ route('checkout') }}" class="btn btn-primary btn-md btn-full">Checkout</a>
           </div>
-        </aside>
+        </div>
+
+        <!-- Info Tab -->
+        <div x-show="tab === 'info'" style="display: none;">
+          <div style="max-width: 600px;">
+            <div class="card">
+              <h4 class="mb-md">Restaurant Information</h4>
+
+              <div class="flex gap-sm mb-md" style="align-items: flex-start;">
+                <x-icon name="map-pin" />
+                <div>
+                  <span class="fw-semi">Location</span>
+                  <p class="text-small text-muted">{{ $restaurant->location }}</p>
+                </div>
+              </div>
+
+              <div class="flex gap-sm mb-md" style="align-items: flex-start;">
+                <x-icon name="clock" />
+                <div>
+                  <span class="fw-semi">Delivery Time</span>
+                  <p class="text-small text-muted">{{ $restaurant->delivery_minutes }} minutes</p>
+                </div>
+              </div>
+
+              <div class="flex gap-sm mb-md" style="align-items: flex-start;">
+                <x-icon name="star" />
+                <div>
+                  <span class="fw-semi">Rating</span>
+                  <p class="text-small text-muted">{{ $restaurant->rating }} / 5 ({{ $restaurant->reviews->count() }} reviews)</p>
+                </div>
+              </div>
+
+              <div class="flex gap-sm" style="align-items: flex-start;">
+                <x-icon name="globe" />
+                <div>
+                  <span class="fw-semi">Cuisine</span>
+                  <p class="text-small text-muted">{{ $restaurant->food_type }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Bottom Section: Info + Ratings -->
-      <section class="section mt-xl">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg);">
-          <!-- Restaurant Info -->
-          <div class="card-bordered">
-            <h5 style="margin-bottom: var(--space-md);">Restaurant Info</h5>
-            <div class="flex-col gap-sm">
-              <div class="flex gap-sm" style="align-items: center;">
-                <span><x-icon name="map-pin" /></span>
-                <span class="text-small">123 Main Street, Downtown, NY 10001</span>
-              </div>
-              <div class="flex gap-sm" style="align-items: center;">
-                <span><x-icon name="phone" /></span>
-                <span class="text-small">(555) 123-4567</span>
-              </div>
-              <div class="flex gap-sm" style="align-items: center;">
-                <span><x-icon name="clock" /></span>
-                <span class="text-small">Mon-Sun: 11:00 AM - 10:00 PM</span>
-              </div>
-              <div class="flex gap-sm" style="align-items: center;">
-                <span><x-icon name="globe" /></span>
-                <span class="text-small">www.restaurant.com</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Ratings -->
-          <div class="card-bordered">
-            <h5 style="margin-bottom: var(--space-md);">Ratings</h5>
-            <div class="flex-col gap-sm">
-              @php $ratings = [['label' => 'Food Quality', 'w' => 'wp-90', 'val' => '4.5'], ['label' => 'Service', 'w' => 'wp-84', 'val' => '4.2'], ['label' => 'Delivery', 'w' => 'wp-76', 'val' => '3.8']]; @endphp
-              @foreach ($ratings as $r)
-              <div class="flex gap-sm" style="align-items: center;">
-                <span class="text-small" style="width: 96px;">{{ $r['label'] }}</span>
-                <div style="flex: 1; height: 8px; background: var(--medium-gray); border-radius: 4px; overflow: hidden;">
-                  <div class="rating-bar-fill {{ $r['w'] }}"></div>
-                </div>
-                <span class="text-small fw-semi">{{ $r['val'] }}</span>
-              </div>
-              @endforeach
-            </div>
-          </div>
-        </div>
-      </section>
 @endsection
