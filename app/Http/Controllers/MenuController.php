@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MenuRequest;
 use App\Models\Menu;
-use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
@@ -22,15 +22,17 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('menu.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MenuRequest $request)
     {
-        //
+        Menu::create($request->validated());
+
+        return redirect()->route('menu.index');
     }
 
     /**
@@ -38,7 +40,7 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        //
+        return view('menu.show', ['menu' => $menu]);
     }
 
     /**
@@ -46,15 +48,17 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        return view('menu.edit', ['menu' => $menu]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Menu $menu)
+    public function update(MenuRequest $request, Menu $menu)
     {
-        //
+        $menu->update($request->validated());
+
+        return redirect()->route('menu.show', $menu);
     }
 
     /**
@@ -62,6 +66,8 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        //
+        $menu->delete();
+
+        return redirect()->route('menu.index');
     }
 }
