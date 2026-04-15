@@ -3,7 +3,7 @@
 @if($src && file_exists(public_path($src)))
     <img src="{{ asset($src) }}" alt="{{ $alt }}" class="{{ $class }}">
 @else
-    <div class="{{ $class }}" style="width: 100%; aspect-ratio: {{ $width }}/{{ $height }}; background: var(--medium-gray, #E0E0E0); border-radius: var(--radius, 4px); display: flex; align-items: center; justify-content: center; color: var(--dark-gray, #323232); font-size: 14px; font-weight: 600;">
+    <div class="{{ $class }} w-full bg-medium-gray rounded flex items-center justify-center text-dark-gray text-sm font-semibold" style="aspect-ratio: {{ $width }}/{{ $height }};">
         {{ $alt ?: 'Image' }}
     </div>
 @endif

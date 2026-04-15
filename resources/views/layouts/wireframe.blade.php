@@ -7,39 +7,42 @@
 
         <title>@yield('title', config('app.name', 'Laravel'))</title>
 
-        <!-- Scripts -->
-        @vite(['resources/css/styles.css', 'resources/js/app.js'])
-    </head>
-    <body>
-        <div class="page-wrapper">
-            <!-- Top Bar -->
-            <div class="page-main">
-                <div class="top-bar">
-                    <div class="flex gap-lg" style="align-items: center;">
-                        <a href="{{ route('home') }}" style="text-decoration: none; color: var(--black);">
-                            <span style="font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px;">Nori</span>
-                        </a>
-                        <nav class="flex gap-sm" style="align-items: center;">
-                            <a href="{{ route('home') }}" class="btn btn-text btn-sm" style="padding: 6px 12px; {{ request()->routeIs('home') ? 'color: var(--primary); font-weight: 700;' : 'color: var(--dark-gray);' }}">Home</a>
-                            <a href="{{ route('restaurants.index') }}" class="btn btn-text btn-sm" style="padding: 6px 12px; {{ request()->routeIs('restaurants.*') ? 'color: var(--primary); font-weight: 700;' : 'color: var(--dark-gray);' }}">Restaurants</a>
-                            <a href="{{ route('cart') }}" class="btn btn-text btn-sm" style="padding: 6px 12px; {{ request()->routeIs('cart') ? 'color: var(--primary); font-weight: 700;' : 'color: var(--dark-gray);' }}">Cart</a>
-                        </nav>
-                    </div>
-                    <div class="top-bar-actions">
-                        @auth
-                            <a href="{{ route('profile.edit') }}" class="btn btn-text btn-sm" style="color: var(--dark-gray);">{{ Auth::user()->name }}</a>
-                            <a href="{{ route('dashboard') }}" class="btn btn-primary btn-sm">Dashboard</a>
-                        @else
-                            <a href="{{ route('login') }}" class="btn btn-secondary btn-sm">Login</a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="btn btn-primary btn-sm">Sign Up</a>
-                            @endif
-                        @endauth
-                    </div>
-                </div>
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800" rel="stylesheet" />
 
-                @yield('content')
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="min-h-screen bg-white text-black font-[Inter,sans-serif] text-sm leading-relaxed">
+        <div class="max-w-7xl mx-auto p-8">
+            <!-- Top Bar -->
+            <div class="flex items-center justify-between py-4 border-b-2 border-black">
+                <div class="flex items-center gap-8">
+                    <a href="{{ route('home') }}" class="text-2xl font-extrabold tracking-tight text-black no-underline">Nori</a>
+                    <nav class="flex items-center gap-2">
+                        <a href="{{ route('home') }}" class="px-3 py-1.5 text-sm font-semibold no-underline {{ request()->routeIs('home') ? 'text-primary font-bold' : 'text-dark-gray hover:text-primary' }}">Home</a>
+                        <a href="{{ route('menu.index') }}" class="px-3 py-1.5 text-sm font-semibold no-underline {{ request()->routeIs('menu.*') ? 'text-primary font-bold' : 'text-dark-gray hover:text-primary' }}">Menu</a>
+                        <a href="{{ route('contact') }}" class="px-3 py-1.5 text-sm font-semibold no-underline {{ request()->routeIs('contact') ? 'text-primary font-bold' : 'text-dark-gray hover:text-primary' }}">Contact</a>
+                    </nav>
+                </div>
+                <div class="flex gap-4">
+                    @auth
+                        <a href="{{ route('profile.edit') }}" class="inline-flex items-center justify-center h-8 px-4 text-sm font-semibold text-dark-gray no-underline hover:text-primary">{{ Auth::user()->name }}</a>
+                        <a href="{{ route('dashboard') }}" class="inline-flex items-center justify-center h-8 px-4 text-sm font-semibold bg-primary text-white rounded hover:bg-primary-light hover:text-black no-underline">Dashboard</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="inline-flex items-center justify-center h-8 px-4 text-sm font-semibold border-2 border-black rounded hover:bg-light-gray cursor-pointer">Logout</button>
+                        </form>
+                    @else
+                        <a href="{{ route('login') }}" class="inline-flex items-center justify-center h-8 px-4 text-sm font-semibold border-2 border-black rounded hover:bg-light-gray no-underline">Login</a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="inline-flex items-center justify-center h-8 px-4 text-sm font-semibold bg-primary text-white rounded hover:bg-primary-light hover:text-black no-underline">Sign Up</a>
+                        @endif
+                    @endauth
+                </div>
             </div>
+
+            @yield('content')
         </div>
     </body>
 </html>

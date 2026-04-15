@@ -12,9 +12,6 @@ class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         if (User::query()->count() === 0) {
@@ -31,11 +28,18 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        User::query()->firstOrCreate(
+            ['email' => 'admin@example.com'],
+            [
+                'name' => 'Admin User',
+                'email_verified_at' => now(),
+                'password' => Hash::make('password'),
+                'remember_token' => Str::random(10),
+            ]
+        );
+
         $this->call([
-            RestaurantSeeder::class,
             DishSeeder::class,
-            OrderSeeder::class,
-            ReviewSeeder::class,
         ]);
     }
 }

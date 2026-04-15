@@ -22,10 +22,10 @@ class MenuRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'restaurant_id' => ['required', 'exists:restaurants,id'],
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
             'image' => ['nullable', 'string', 'max:255'],
+            'category' => ['required', 'string', 'max:255'],
             'ingredients' => ['required', 'string'],
             'allergies' => ['nullable', 'string'],
             'price' => ['required', 'integer', 'min:0'],

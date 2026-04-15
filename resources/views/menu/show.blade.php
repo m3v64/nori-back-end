@@ -1,52 +1,54 @@
 @extends('layouts.wireframe')
 
-@section('title', $menu->name . ' - Nori')
+@section('title', $dish->name . ' - Nori')
 
 @section('content')
       <!-- Breadcrumb -->
-      <div class="breadcrumb">
+      <div class="flex items-center gap-2 text-xs py-4">
         <a href="{{ route('menu.index') }}">Menu</a>
-        <span class="breadcrumb-separator">&rsaquo;</span>
-        <span>{{ $menu->name }}</span>
+        <span class="text-gray-400">&rsaquo;</span>
+        <span>{{ $dish->name }}</span>
       </div>
 
-      <section class="section">
-        <div class="card-bordered" style="max-width: 800px;">
-          <div style="display: flex; gap: var(--space-md);">
-            <div style="width: 280px; min-width: 280px; min-height: 200px;">
-              <x-placeholder-image :src="$menu->image" :alt="$menu->name" :width="280" :height="200" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);" />
+      <section class="mb-12">
+        <div class="border border-medium-gray rounded p-4 bg-white max-w-3xl">
+          <div class="flex gap-6">
+            <div class="w-70 min-w-70 min-h-50">
+              <x-placeholder-image :src="$dish->image" :alt="$dish->name" :width="280" :height="200" class="w-full h-full object-cover rounded" />
             </div>
-            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
-              <div class="flex-between mb-sm">
-                <h2>{{ $menu->name }}</h2>
-                <span class="fw-bold text-primary" style="font-size: 24px;">€{{ number_format($menu->price / 100, 2) }}</span>
+            <div class="flex-1 flex flex-col justify-center">
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-4xl font-bold">{{ $dish->name }}</h2>
+                <span class="font-bold text-primary text-2xl">{{ $dish->formatted_price }}</span>
               </div>
 
-              @if($menu->description)
-                <p class="text-muted mb-sm">{{ $menu->description }}</p>
+              <p class="text-dark-gray mb-1">{{ $dish->category }}</p>
+
+              @if($dish->description)
+                <p class="text-dark-gray mb-4">{{ $dish->description }}</p>
               @endif
 
-              @if($menu->ingredients)
-                <div class="mb-sm">
-                  <span class="fw-semi">Ingredients</span>
-                  <p class="text-small text-muted">{{ $menu->ingredients }}</p>
+              @if($dish->ingredients)
+                <div class="mb-4">
+                  <span class="font-semibold">Ingredients</span>
+                  <p class="text-xs text-dark-gray">{{ $dish->ingredients }}</p>
                 </div>
               @endif
 
-              @if($menu->allergies)
-                <div class="mb-sm">
-                  <span class="fw-semi">Allergies</span>
-                  <span class="badge badge-warning">⚠ {{ $menu->allergies }}</span>
+              @if($dish->allergies)
+                <div class="mb-4">
+                  <span class="font-semibold">Allergies</span>
+                  <span class="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-800">⚠ {{ $dish->allergies }}</span>
                 </div>
               @endif
 
               @auth
-                <div class="flex gap-sm" style="margin-top: var(--space-md);">
-                  <a href="{{ route('menu.edit', $menu) }}" class="btn btn-secondary btn-sm">Edit</a>
-                  <form action="{{ route('menu.destroy', $menu) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                <div class="flex gap-4 mt-6">
+                  <a href="{{ route('menu.edit', $dish) }}" class="inline-flex items-center justify-center h-8 px-4 text-sm font-semibold border-2 border-black rounded hover:bg-light-gray no-underline text-black">Edit</a>
+                  <form action="{{ route('menu.destroy', $dish) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    <button type="submit" class="inline-flex items-center justify-center h-8 px-4 text-sm font-semibold bg-danger text-white rounded hover:bg-red-700 cursor-pointer">Delete</button>
                   </form>
                 </div>
               @endauth
