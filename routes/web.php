@@ -8,13 +8,11 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'index')->name('home');
 
 Route::resource('menu', MenuController::class)->only([
-    'index', 'create', 'store', 'show', 'edit', 'update', 'destroy',
-])->middleware([
-    'create' => 'auth',
-    'store' => 'auth',
-    'edit' => 'auth',
-    'update' => 'auth',
-    'destroy' => 'auth',
+    'create', 'store', 'edit', 'update', 'destroy',
+])->middleware('auth');
+
+Route::resource('menu', MenuController::class)->only([
+    'index', 'show',
 ]);
 
 Route::get('/contact', [ContactController::class, 'create'])->name('contact');

@@ -27,10 +27,20 @@
       <!-- Categories Section -->
       <section class="mb-12">
         <h4 class="text-2xl font-bold mb-6">Our Cuisine</h4>
+        @php
+          $categoryIcons = [
+              'Ramen' => 'bowl',
+              'Sushi' => 'fish',
+              'Appetizers' => 'salad',
+              'Main Dishes' => 'flame',
+              'Sides' => 'leaf',
+              'Desserts' => 'cake',
+          ];
+        @endphp
         <div class="flex flex-wrap gap-3">
           @foreach ($categories as $category)
           <a href="{{ route('menu.index') }}#{{ Str::slug($category) }}" class="inline-flex items-center gap-2 border border-medium-gray rounded-full px-5 py-2 no-underline text-inherit bg-white hover:bg-light-gray">
-            <x-icon name="utensils" class="w-4 h-4 text-primary" />
+            <x-icon :name="$categoryIcons[$category] ?? 'utensils'" class="w-4 h-4 text-primary" />
             <span class="text-sm font-semibold">{{ $category }}</span>
           </a>
           @endforeach
@@ -50,7 +60,7 @@
             <h5 class="text-xl font-semibold mb-1">{{ $dish->name }}</h5>
             <p class="text-xs text-dark-gray mb-1">{{ $dish->category }}</p>
             <div class="flex items-center justify-between">
-              <span class="font-bold text-primary">{{ $dish->formatted_price }}</span>
+              <span class="font-bold text-primary">€{{ number_format($dish->price / 100, 2) }}</span>
               @if($dish->allergies)
                 <span class="inline-flex items-center px-3 py-1 text-[11px] font-semibold rounded-full bg-amber-100 text-amber-800">⚠ {{ $dish->allergies }}</span>
               @endif

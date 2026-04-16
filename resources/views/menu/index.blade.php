@@ -34,7 +34,7 @@
               <div class="flex-1 flex flex-col justify-center p-4">
                 <div class="flex items-center justify-between mb-1">
                   <h5 class="text-xl font-semibold">{{ $dish->name }}</h5>
-                  <span class="font-bold text-primary text-lg">{{ $dish->formatted_price }}</span>
+                  <span class="font-bold text-primary text-lg">€{{ number_format($dish->price / 100, 2) }}</span>
                 </div>
                 @if($dish->description)
                   <p class="text-xs text-dark-gray mb-1">{{ $dish->description }}</p>
