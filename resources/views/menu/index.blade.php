@@ -3,7 +3,7 @@
 @section('title', 'Menu - Nori')
 
 @section('content')
-      <h2 class="text-3xl font-bold mb-8 pb-4 border-b-2 border-medium-gray">Our Menu</h2>
+      <h2 class="text-3xl font-bold pb-4 border-b-2 border-medium-gray">Our Menu</h2>
 
       <div class="flex items-center gap-2 text-xs py-4">
         <a href="{{ route('home') }}">Home</a>
@@ -27,28 +27,40 @@
           <h3 class="text-3xl font-bold mb-6">{{ $category }}</h3>
           <div class="flex flex-col gap-4">
             @foreach ($categoryDishes as $dish)
-            <a href="{{ route('menu.show', $dish) }}" class="flex border border-medium-gray rounded overflow-hidden no-underline text-inherit bg-white hover:bg-light-gray">
-              <div class="w-40 min-w-40 min-h-32">
-                <x-placeholder-image :src="$dish->image" :alt="$dish->name" :width="160" :height="128" class="w-full h-full object-cover" />
-              </div>
+            <div class="flex border border-medium-gray rounded overflow-hidden bg-white">
+              <a href="{{ route('menu.show', $dish) }}" class="w-40 min-w-40 min-h-32 no-underline">
+                <x-placeholder-image :src="$dish->image" :alt="$dish->name" :width="160" :height="128" class="w-full h-full object-cover text-center" />
+              </a>
               <div class="flex-1 flex flex-col justify-center p-4">
                 <div class="flex items-center justify-between mb-1">
-                  <h5 class="text-xl font-semibold">{{ $dish->name }}</h5>
-                  <span class="font-bold text-primary text-lg">€{{ number_format($dish->price / 100, 2) }}</span>
+                  <a href="{{ route('menu.show', $dish) }}" class="no-underline text-inherit hover:underline">
+                    <h5 class="text-xl font-semibold">{{ $dish->name }}</h5>
+                  </a>
+                  <span class="font-bold text-primary text-lg">{{ $dish->formattedPrice() }}</span>
                 </div>
                 @if($dish->description)
                   <p class="text-xs text-dark-gray mb-1">{{ $dish->description }}</p>
                 @endif
                 <div class="flex flex-wrap gap-2">
                   @if($dish->ingredients)
-                    <span class="text-xs text-dark-gray">{{ Str::limit($dish->ingredients, 80) }}</span>
+                    <span class="text-xs text-dark-gray">{{ $dish->ingredients }}</span>
                   @endif
                   @if($dish->allergies)
                     <span class="inline-flex items-center px-3 py-1 text-[11px] font-semibold rounded-full bg-amber-100 text-amber-800">⚠ {{ $dish->allergies }}</span>
                   @endif
                 </div>
+                @auth
+                  <div class="flex justify-end gap-3 mt-3">
+                    <a href="{{ route('menu.edit', $dish) }}" class="inline-flex items-center justify-center h-7 px-3 text-xs font-semibold border-2 border-black rounded hover:bg-light-gray no-underline text-black">Edit</a>
+                    <form action="{{ route('menu.destroy', $dish) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="inline-flex items-center justify-center h-7 px-3 text-xs font-semibold bg-danger text-white rounded hover:bg-red-700 cursor-pointer">Delete</button>
+                    </form>
+                  </div>
+                @endauth
               </div>
-            </a>
+            </div>
             @endforeach
           </div>
         </section>

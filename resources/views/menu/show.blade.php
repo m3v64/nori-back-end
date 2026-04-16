@@ -19,7 +19,7 @@
             <div class="flex-1 flex flex-col justify-center">
               <div class="flex items-center justify-between mb-4">
                 <h2 class="text-4xl font-bold">{{ $dish->name }}</h2>
-                <span class="font-bold text-primary text-2xl">€{{ number_format($dish->price / 100, 2) }}</span>
+                <span class="font-bold text-primary text-2xl">{{ $dish->formattedPrice() }}</span>
               </div>
 
               <p class="text-dark-gray mb-1">{{ $dish->category }}</p>

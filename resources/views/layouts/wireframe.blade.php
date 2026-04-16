@@ -16,7 +16,7 @@
     <body class="min-h-screen bg-white text-black font-[Inter,sans-serif] text-sm leading-relaxed">
         <div class="max-w-7xl mx-auto p-8">
             <!-- Top Bar -->
-            <div class="flex items-center justify-between py-4 border-b-2 border-black">
+            <div class="flex items-center justify-between py-4 border-b-2 border-black mb-4">
                 <div class="flex items-center gap-8">
                     <a href="{{ route('home') }}" class="text-2xl font-extrabold tracking-tight text-black no-underline">Nori</a>
                     <nav class="flex items-center gap-2">

@@ -15,4 +15,9 @@ class Dish extends Model
         'allergies',
         'price',
     ];
+
+    public function formattedPrice(): string
+    {
+        return '€'.number_format($this->price / 100, 2);
+    }
 }

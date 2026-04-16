@@ -16,6 +16,6 @@ class ContactMessage extends Model
 
     public function isRead(): bool
     {
-        return $this->read_at !== null;
+        return $this->read_at != null;
     }
 }
