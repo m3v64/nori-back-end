@@ -55,53 +55,7 @@
           <!-- Order Cards -->
           <div class="flex-col gap-md">
             @php
-              $orders = [
-                [
-                  'id' => '#FD-2026-0001', 'date' => 'Feb 27, 2026', 'status' => 'Delivered', 'status_class' => 'badge-success',
-                  'items' => [
-                    ['name' => 'Margherita Pizza', 'desc' => 'Classic with mozzarella', 'note' => 'Extra cheese', 'qty' => 1, 'price' => '$12.99'],
-                    ['name' => 'Caesar Salad', 'desc' => 'Fresh romaine lettuce', 'note' => 'Dressing on the side', 'qty' => 2, 'price' => '$19.98'],
-                    ['name' => 'Tiramisu', 'desc' => 'Italian dessert', 'note' => 'With espresso', 'qty' => 1, 'price' => '$8.99'],
-                  ],
-                  'actions' => ['View', 'Reorder'], 'btn_label' => 'Reorder', 'view_link' => true,
-                ],
-                [
-                  'id' => '#FD-2026-0002', 'date' => 'Feb 25, 2026', 'status' => 'Delivered', 'status_class' => 'badge-success',
-                  'items' => [
-                    ['name' => 'Pad Thai', 'desc' => 'Stir-fried noodles', 'note' => 'With shrimp', 'qty' => 1, 'price' => '$14.99'],
-                    ['name' => 'Spring Rolls', 'desc' => 'Crispy vegetable rolls', 'note' => 'Set of 4', 'qty' => 1, 'price' => '$6.99'],
-                    ['name' => 'Mango Sticky Rice', 'desc' => 'Thai dessert', 'note' => 'With coconut cream', 'qty' => 1, 'price' => '$7.99'],
-                  ],
-                  'actions' => ['View', 'Reorder'], 'btn_label' => 'Reorder', 'view_link' => false,
-                ],
-                [
-                  'id' => '#FD-2026-0003', 'date' => 'Feb 20, 2026', 'status' => 'In Progress', 'status_class' => 'badge-warning',
-                  'items' => [
-                    ['name' => 'Chicken Biryani', 'desc' => 'Aromatic basmati rice', 'note' => 'With raita', 'qty' => 2, 'price' => '$29.98'],
-                    ['name' => 'Garlic Naan', 'desc' => 'Freshly baked bread', 'note' => 'Set of 2', 'qty' => 1, 'price' => '$4.99'],
-                    ['name' => 'Mango Lassi', 'desc' => 'Sweet yogurt drink', 'note' => 'Large size', 'qty' => 2, 'price' => '$9.98'],
-                  ],
-                  'actions' => ['Track', 'Cancel'], 'btn_label' => 'Track', 'view_link' => false,
-                ],
-                [
-                  'id' => '#FD-2026-0004', 'date' => 'Feb 15, 2026', 'status' => 'Cancelled', 'status_class' => 'badge-error',
-                  'items' => [
-                    ['name' => 'Sushi Platter', 'desc' => 'Assorted sushi rolls', 'note' => '12 pieces', 'qty' => 1, 'price' => '$24.99'],
-                    ['name' => 'Miso Soup', 'desc' => 'Traditional Japanese soup', 'note' => 'With tofu', 'qty' => 2, 'price' => '$7.98'],
-                    ['name' => 'Green Tea Ice Cream', 'desc' => 'Matcha flavor', 'note' => '2 scoops', 'qty' => 1, 'price' => '$5.99'],
-                  ],
-                  'actions' => ['View', 'Reorder'], 'btn_label' => 'Reorder', 'view_link' => false,
-                ],
-                [
-                  'id' => '#FD-2026-0005', 'date' => 'Feb 10, 2026', 'status' => 'Delivered', 'status_class' => 'badge-success',
-                  'items' => [
-                    ['name' => 'Beef Tacos', 'desc' => 'Corn tortillas', 'note' => 'Set of 3', 'qty' => 2, 'price' => '$21.98'],
-                    ['name' => 'Guacamole & Chips', 'desc' => 'Fresh avocado dip', 'note' => 'With tortilla chips', 'qty' => 1, 'price' => '$8.99'],
-                    ['name' => 'Churros', 'desc' => 'Cinnamon sugar coated', 'note' => 'With chocolate sauce', 'qty' => 1, 'price' => '$6.99'],
-                  ],
-                  'actions' => ['View', 'Reorder'], 'btn_label' => 'Reorder', 'view_link' => false,
-                ],
-              ];
+              $orders = [];
             @endphp
 
             @foreach ($orders as $order)
@@ -144,7 +98,7 @@
                 </div>
                 <div class="flex gap-sm" style="align-items: center;">
                   @if ($order['view_link'])
-                  <a href="{{ route('order.confirmation') }}" class="text-primary text-small">View</a>
+                  <a href="{{ route('index') }}" class="text-primary text-small">View</a>
                   @else
                   <a href="#" class="text-primary text-small">View</a>
                   @endif

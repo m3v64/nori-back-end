@@ -28,7 +28,7 @@ class ContactController extends Controller
 
     public function show(ContactMessage $message)
     {
-        if (! $message->isRead()) {
+        if (!$message->isRead()) {
             $message->update(['read_at' => now()]);
         }
 
